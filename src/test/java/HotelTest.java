@@ -76,4 +76,19 @@ public class HotelTest {
         assertTrue(hotel.listGuests(4).contains(guest2));
         assertTrue(hotel.listGuests(5).contains(guest5));
     }
+
+    @Test
+    public void canListEmptyBedrooms__all(){
+        assertEquals(3, hotel.emptyBedrooms().size());
+    }
+
+    @Test
+    public void canListEmptyBedrooms_one() {
+        hotel.checkIn(guest1, 1);
+        hotel.checkIn(guest2, 2);
+//        check only 1 vacant bedroom
+        assertEquals(1, hotel.emptyBedrooms().size());
+//        check the vacant room no. is 3
+        assertEquals(3, hotel.emptyBedrooms().get(0).getNumber());
+    }
 }
