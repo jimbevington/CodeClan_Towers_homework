@@ -14,4 +14,8 @@ public class Bedroom extends Room {
     public RoomType getRoomType() {
         return type;
     }
+
+    public int getDaysBooked() {
+        return this.daysBooked;
+    }
 }

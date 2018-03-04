@@ -30,8 +30,6 @@ public class HotelTest {
     @Before
     public void setUp() throws Exception {
 
-//        can i use Collections.addall
-
         rooms = new ArrayList<>();
 
         bedroom1 = new Bedroom(2, 1, RoomType.TWIN, 34.77);
@@ -91,4 +89,17 @@ public class HotelTest {
 //        check the vacant room no. is 3
         assertEquals(3, hotel.emptyBedrooms().get(0).getNumber());
     }
+
+    @Test
+    public void canCheckInBedroom__bedroom() {
+        hotel.checkInBedroom(guest1, 1, 1);
+        assertEquals(1, rooms.get(0).getGuests().size());
+        assertTrue(rooms.get(0).getGuests().get(0) instanceof Guest);
+    }
+
+    //    @Test
+//    public void canUpdateDaysBooked() {
+//        hotel.checkIn(guest1, 1, 2);
+//        assertEquals(2, hotel.getRoom(1).getDaysBooked());
+//    }
 }

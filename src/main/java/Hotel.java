@@ -17,6 +17,14 @@ public class Hotel {
         }
     }
 
+    public void checkInBedroom(Guest guest, int roomNumber, int nights) {
+        for (Room room : rooms) {
+            if (roomNumber == room.getNumber() && room instanceof Bedroom) {
+                room.addGuest(guest);
+            }
+        }
+    }
+
     public ArrayList<Guest> listGuests(int roomNumber) {
         for (Room room : rooms) {
             if (roomNumber == room.getNumber()){
@@ -36,4 +44,16 @@ public class Hotel {
         }
         return empties;
     }
+
+//    for testing
+    public Room getRoom(int roomNumber) {
+        for (Room room : rooms) {
+            if (roomNumber == room.getNumber()) {
+                return room;
+            }
+        }
+        return null;
+    }
+
+
 }
