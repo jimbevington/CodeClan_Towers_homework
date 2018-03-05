@@ -15,4 +15,8 @@ public class Guest {
     public double getBudget() {
         return budget;
     }
+
+    public void dockBudget(double price) {
+        this.budget -= price;
+    }
 }

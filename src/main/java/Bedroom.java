@@ -22,5 +22,9 @@ public class Bedroom extends Room {
     public void setDaysBooked(int daysBooked) {
         this.daysBooked = daysBooked;
     }
+
+    public double getPrice() {
+        return this.price;
+    }
 }
 

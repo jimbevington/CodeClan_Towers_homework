@@ -25,6 +25,7 @@ public class Hotel {
             if (roomNumber == room.getNumber() && room instanceof Bedroom) {
                 ((Bedroom) room).setDaysBooked(nights);
                 room.addGuest(guest);
+
             }
         }
     }

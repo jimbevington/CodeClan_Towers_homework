@@ -21,5 +21,11 @@ public class GuestTest {
     public void canGetBudget() {
         assertEquals(12.00, guest.getBudget(), 0.01);
     }
+
+    @Test
+    public void canDockBudget() {
+        guest.dockBudget(5);
+        assertEquals(7.00, guest.getBudget(), 0.01);
+    }
 }
 
