@@ -47,11 +47,11 @@ public class HotelTest {
         conf2 = new ConferenceRoom(6, 7, "Peace", 45.0);
         rooms.add(conf2);
 
-        guest1 = new Guest("Wallace");
-        guest2 = new Guest("Gromit");
-        guest3 = new Guest("Wendolene");
-        guest4 = new Guest("Shaun");
-        guest5 = new Guest("Stalin");
+        guest1 = new Guest("Wallace", 450.00);
+        guest2 = new Guest("Gromit", 56.00);
+        guest3 = new Guest("Wendolene", 60.00);
+        guest4 = new Guest("Shaun", 577.00);
+        guest5 = new Guest("Stalin", 670.00);
 
         hotel = new Hotel(rooms);
     }
@@ -118,6 +118,9 @@ public class HotelTest {
         Room room = hotel.findGuestsRoom(guest1);
         assertEquals(5, room.getNumber());
     }
+
+
+
 
 
 }

@@ -11,7 +11,7 @@ public class BedroomTest{
     @Before
     public void setUp() throws Exception {
         bedroom = new Bedroom(2, 56, RoomType.DOUBLE, 19.99);
-        guest = new Guest("Leatherface");
+        guest = new Guest("Leatherface", 120.00);
     }
 
     @Test
@@ -33,8 +33,8 @@ public class BedroomTest{
     @Test
     public void canReachCapacity() {
         bedroom.addGuest(guest);
-        Guest guest2 = new Guest("Silvio");
-        Guest guest3 = new Guest("Matteo");
+        Guest guest2 = new Guest("Silvio", 800.00);
+        Guest guest3 = new Guest("Matteo", 10.00);
         bedroom.addGuest(guest2);
         assertEquals(2, bedroom.getGuests().size());
         bedroom.addGuest(guest3);

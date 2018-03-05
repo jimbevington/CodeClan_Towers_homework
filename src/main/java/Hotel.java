@@ -59,7 +59,6 @@ public class Hotel {
         return empties;
     }
 
-
 //    for testing
     public Bedroom getBedroom(int roomNumber) {
         for (Room room : rooms) {
@@ -69,6 +68,5 @@ public class Hotel {
         }
         return null;
     }
-
 
 }

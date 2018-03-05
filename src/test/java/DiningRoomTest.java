@@ -12,7 +12,7 @@ public class DiningRoomTest {
 
     @Before
     public void setUp() throws Exception {
-        guest = new Guest("Alfred");
+        guest = new Guest("Alfred", 156.00);
         diningRoom = new DiningRoom(2, 1);
     }
 
@@ -30,8 +30,8 @@ public class DiningRoomTest {
     @Test
     public void canReachCapacity() {
         diningRoom.addGuest(guest);
-        Guest guest2 = new Guest("Jean-Claude");
-        Guest guest3 = new Guest("Theresa");
+        Guest guest2 = new Guest("Jean-Claude", 678.00);
+        Guest guest3 = new Guest("Theresa", 100.00);
         diningRoom.addGuest(guest2);
         diningRoom.addGuest(guest3);
         assertEquals(2, diningRoom.getGuests().size());
