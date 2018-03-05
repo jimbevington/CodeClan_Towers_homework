@@ -23,9 +23,12 @@ public class Hotel {
         for (Room room : rooms) {
 //            choose room based on its number and it being a Bedroom
             if (roomNumber == room.getNumber() && room instanceof Bedroom) {
+//                update the Days Booked param
                 ((Bedroom) room).setDaysBooked(nights);
+//                add the Guest to the Room
                 room.addGuest(guest);
-
+//                dock the Guests budget based on Price
+                guest.dockBudget(((Bedroom) room).getPrice());
             }
         }
     }

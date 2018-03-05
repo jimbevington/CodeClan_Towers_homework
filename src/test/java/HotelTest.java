@@ -91,10 +91,14 @@ public class HotelTest {
     }
 
     @Test
-    public void canCheckInBedroom__bedroom() {
+    public void canCheckInBedroom__correctRoom() {
         hotel.checkInBedroom(guest1, 1, 1);
+//        check theres a guest in the Room
         assertEquals(1, hotel.listGuests(1).size());
+//        check it is a Guest object
         assertTrue(hotel.listGuests(1).get(0) instanceof Guest);
+//        check the Guests budget has been docked.
+        assertEquals(415.23, guest1.getBudget(), 0.01);
     }
 
     @Test
