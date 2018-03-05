@@ -111,4 +111,13 @@ public class HotelTest {
 //        check booked for 2 days after Guest checks in
         assertEquals(2, hotel.getBedroom(1).getDaysBooked());
     }
+
+    @Test
+    public void canFindGuestsRoom() {
+        hotel.checkIn(guest1, 5);
+        Room room = hotel.findGuestsRoom(guest1);
+        assertEquals(5, room.getNumber());
+    }
+
+
 }

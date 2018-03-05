@@ -38,6 +38,16 @@ public class Hotel {
         return null;
     }
 
+    public Room findGuestsRoom(Guest guest) {
+        for (Room room : rooms) {
+//            if the Guest is in a room, return the Room
+            if (room.getGuests().contains(guest)) {
+                return room;
+            }
+        }
+        return null;
+    }
+
     public ArrayList<Room> emptyBedrooms() {
         ArrayList<Room> empties = new ArrayList<>();
         for (Room room : rooms) {
