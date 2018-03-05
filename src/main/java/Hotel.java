@@ -5,6 +5,8 @@ public class Hotel {
     private ArrayList<Room> rooms;
 
 
+//  NOT SURE WHETHER TO GO THIS WAY,
+//    or have internal ArrayLists of Bedrooms, Conference Rooms and Dining Rooms to individually loop through.
     public Hotel(ArrayList<Room> rooms) {
         this.rooms = rooms;
     }
@@ -19,7 +21,9 @@ public class Hotel {
 
     public void checkInBedroom(Guest guest, int roomNumber, int nights) {
         for (Room room : rooms) {
+//            choose room based on its number and it being a Bedroom
             if (roomNumber == room.getNumber() && room instanceof Bedroom) {
+                ((Bedroom) room).setDaysBooked(nights);
                 room.addGuest(guest);
             }
         }
@@ -45,11 +49,12 @@ public class Hotel {
         return empties;
     }
 
+
 //    for testing
-    public Room getRoom(int roomNumber) {
+    public Bedroom getBedroom(int roomNumber) {
         for (Room room : rooms) {
-            if (roomNumber == room.getNumber()) {
-                return room;
+            if (roomNumber == room.getNumber() && room instanceof Bedroom) {
+                return (Bedroom) room;
             }
         }
         return null;

@@ -18,4 +18,9 @@ public class Bedroom extends Room {
     public int getDaysBooked() {
         return this.daysBooked;
     }
+
+    public void setDaysBooked(int daysBooked) {
+        this.daysBooked = daysBooked;
+    }
 }
+

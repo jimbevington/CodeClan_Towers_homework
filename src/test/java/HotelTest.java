@@ -93,13 +93,22 @@ public class HotelTest {
     @Test
     public void canCheckInBedroom__bedroom() {
         hotel.checkInBedroom(guest1, 1, 1);
-        assertEquals(1, rooms.get(0).getGuests().size());
-        assertTrue(rooms.get(0).getGuests().get(0) instanceof Guest);
+        assertEquals(1, hotel.listGuests(1).size());
+        assertTrue(hotel.listGuests(1).get(0) instanceof Guest);
     }
 
-    //    @Test
-//    public void canUpdateDaysBooked() {
-//        hotel.checkIn(guest1, 1, 2);
-//        assertEquals(2, hotel.getRoom(1).getDaysBooked());
-//    }
+    @Test
+    public void canCheckInBedroom__incorrectRoomType() {
+        hotel.checkInBedroom(guest1, 5, 1);
+        assertEquals(0, hotel.listGuests(5).size());
+    }
+
+    @Test
+    public void canUpdateDaysBooked() {
+//        check room is booked for 0 days
+        assertEquals(0, hotel.getBedroom(1).getDaysBooked());
+        hotel.checkInBedroom(guest1, 1, 2);
+//        check booked for 2 days after Guest checks in
+        assertEquals(2, hotel.getBedroom(1).getDaysBooked());
+    }
 }
