@@ -108,6 +108,25 @@ public class HotelTest {
     }
 
     @Test
+    public void canCheckInConferenceRoom__correctRoom() {
+        hotel.checkInConference(guest1, 6);
+//        get the room that the guest is in
+        Room room = hotel.findGuestsRoom(guest1);
+//        check if its the right room number
+        assertEquals(6, room.getNumber());
+//        check its a guest in the room
+        assertTrue(hotel.listGuests(6).get(0) instanceof Guest);
+//        check the Guests budget has been docked
+        assertEquals(300.00, guest1.getBudget(), 0.01);
+    }
+
+    @Test
+    public void canCheckInConferenceRoom__incorrectRoomType() {
+        hotel.checkInConference(guest1, 1);
+        assertEquals(0, hotel.listGuests(1).size());
+    }
+
+    @Test
     public void canUpdateDaysBooked() {
 //        check room is booked for 0 days
         assertEquals(0, hotel.getBedroom(1).getDaysBooked());

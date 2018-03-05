@@ -33,6 +33,20 @@ public class Hotel {
         }
     }
 
+//    potentially superfluous as a single guest probably wouldn't be checked into a Conference room.
+//    a single Guest certainly wouldn't be charged for it.
+    public void checkInConference(Guest guest, int roomNumber) {
+        for (Room room : rooms) {
+//            choose room based on its number and it being a ConferenceRoom
+            if (roomNumber == room.getNumber() && room instanceof ConferenceRoom) {
+//                add the Guest to the Room
+                room.addGuest(guest);
+//                dock the Guests budget based on Price
+                guest.dockBudget(((ConferenceRoom) room).getPrice());
+            }
+        }
+    }
+
     public ArrayList<Guest> listGuests(int roomNumber) {
         for (Room room : rooms) {
             if (roomNumber == room.getNumber()){

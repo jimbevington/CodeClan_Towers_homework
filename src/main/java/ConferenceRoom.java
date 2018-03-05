@@ -12,4 +12,6 @@ public class ConferenceRoom extends Room {
     public double getPrice() {
         return this.price;
     }
+
+
 }
